@@ -6,15 +6,26 @@ buildscript {
     }
 }
 
-//
-sourceSets {
-    main {
-        resources {
-            srcDir 'src/main/resources'
-        }
-        output.resourcesDir = "build/classes/main"
-    }
+//sourceSets {
+//    main {
+//        resources {
+//            srcDir 'src/main/resources'
+//        }
+//    }
+//}
+
+task copyTestResources(type: Copy) {
+    from "${projectDir}/src/test/resources"
+    into "${buildDir}/classes/test"
 }
+
+//task copyMainResources(type: Copy) {
+//    from "${projectDir}/src/main/resources"
+//    into "${buildDir}/classes/main"
+//}
+
+processTestResources.dependsOn copyTestResources
+//copyTestResources.dependsOn copyMainResources
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])

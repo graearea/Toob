@@ -2,7 +2,9 @@ package com.naughtyserver.toob.core;
 
 import java.awt.Color;
 import java.io.IOException;
+import java.net.URI;
 import java.net.URISyntaxException;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -11,6 +13,7 @@ import java.util.List;
 import java.util.Set;
 
 import static java.awt.Color.*;
+import static java.nio.file.Paths.*;
 
 public class TubeLineManager {
 
@@ -18,9 +21,9 @@ public class TubeLineManager {
 
     public TubeLineManager() {
         try {
-            lines = new ArrayList<String>();
-//            lines =
-// Files.readAllLines(Paths.get(getClass().getResource("lines.csv").toURI()));
+            URI uri = getClass().getResource("lines.csv").toURI();
+            lines =
+                    Files.readAllLines(get(uri), StandardCharsets.UTF_8);
         } catch (Exception e) {
             e.printStackTrace();
             throw new RuntimeException(e);
