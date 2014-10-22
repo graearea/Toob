@@ -1,0 +1,64 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context=".Main">
+
+    <TextView
+        android:id="@+id/section_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Wifi Info"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Show BSSIDs"
+        android:id="@+id/getWifi"
+        android:layout_marginLeft="10dp"
+        android:layout_below="@id/section_label"
+        android:onClick="displayWifis"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Store BSSIDs"
+        android:id="@+id/storeWifis"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="17dp"
+        android:layout_toRightOf="@id/getWifi"
+        android:onClick="storeWifi"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Show Location"
+        android:id="@+id/getLocation"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="17dp"
+        android:layout_below="@id/storeWifis"
+        android:onClick="determineLocation"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Display All Data"
+        android:id="@+id/dumpData"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="17dp"
+        android:layout_toRightOf="@id/getLocation"
+        android:layout_below="@id/getWifi"
+        android:onClick="displayAllStorage"/>
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/dumpData">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/dumpData"
+        android:id="@+id/displaySection"
+        />
+    </ScrollView>
+
+</RelativeLayout>
